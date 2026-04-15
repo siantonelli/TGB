@@ -1176,6 +1176,7 @@ def csv_to_pd_data_ln(
     result_df = df_merged[["u", "i", "gossip_ts", "final_label", "status", "idx", "w"]].rename(
         columns={"gossip_ts": "ts", "final_label": "label"}
     )
+    result_df["ts"] = result_df["ts"] // 1000  # Convert ms to seconds
     return result_df, feat_l, node_ids
 
 
